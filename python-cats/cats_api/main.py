@@ -6,3 +6,7 @@ class SimpleRequest:
 		response = requests.get(endpoint)
 		return response.status_code
 
+	def body(self, endpoint):
+		response = requests.get(endpoint)
+		return response.json()
+
