@@ -22,6 +22,11 @@ def test_image_body_data():
 
 	assert "https://cdn2.thecatapi.com/images/" in result_json
 
+def test_image_limit():
+	result = cats.send("body","https://api.thecatapi.com/v1/images/search?limit=11")
+
+	assert len(result) == 10
+
 def test_breed_status_code():
 	result = cats.send("meta","https://api.thecatapi.com/v1/breeds")
 
