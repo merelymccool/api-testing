@@ -16,7 +16,6 @@
     "url": "https://github.com/merelymccool/api-testing/issues"
   },
   "homepage": "https://github.com/merelymccool/api-testing#readme",
-  "dependencies": {},
   "devDependencies": {
     "mocha": "^10.7.3"
   }
