@@ -5,6 +5,7 @@ import os
 from cats_api.main import SimpleRequest
 
 cats = SimpleRequest()
+token = os.environ.get("CAT_API_TOKEN")
 
 def test_image_status_code():
 	result = cats.send("meta","https://api.thecatapi.com/v1/images/search")
@@ -23,13 +24,27 @@ def test_image_body_data():
 
 	assert "https://cdn2.thecatapi.com/images/" in result_json
 
+def test_authorized_data():
+	result = cats.send("body","https://api.thecatapi.com/v1/images/search")
+
+	result_json = json.dumps(result, indent = 4)
+
+	assert "breeds" not in result_json
+
+def test_authorized_data_with_key():
+	endpoint = "https://api.thecatapi.com/v1/images/search?api_key=" + token
+	result = cats.send("body",endpoint)
+
+	result_json = json.dumps(result, indent = 4)
+
+	assert "breeds" in result_json
+
 def test_image_limit():
 	result = cats.send("body","https://api.thecatapi.com/v1/images/search?limit=11")
 
 	assert len(result) == 10
 
 def test_image_limit_with_key():
-	token = os.environ.get("CAT_API_TOKEN")
 	endpoint = "https://api.thecatapi.com/v1/images/search?limit=11&api_key=" + token
 	result = cats.send("body",endpoint)
 
