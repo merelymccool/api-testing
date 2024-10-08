@@ -1,0 +1,23 @@
+{
+  "name": "js-booker",
+  "version": "1.0.0",
+  "description": "JaveScript API testing project",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merelymccool/api-testing.git"
+  },
+  "author": "merelymccool",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/merelymccool/api-testing/issues"
+  },
+  "homepage": "https://github.com/merelymccool/api-testing#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^10.7.3"
+  }
+}
